@@ -46,3 +46,6 @@ get '/entries/:id/edit' do
   @entry = find_and_ensure_entry(params[:id])
   erb :'entries/edit'
 end
+
+#loged in users entry
+

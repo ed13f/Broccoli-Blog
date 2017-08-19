@@ -1,0 +1,7 @@
+<h1>HELLOO and welcome to the brocolli blog</h1>
+<%= session.inspect %>
+
+<form method="post" action="/logout">
+  <input type="hidden" name="_method" value="delete" />
+  <input type="submit" value="Logout" />
+</form>
