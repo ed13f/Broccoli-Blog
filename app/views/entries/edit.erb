@@ -11,7 +11,7 @@
 
 <% current_user %>
 <% if entry_owned_by_user %>
-
+<!-- need to logged in to edit your own posts -->
 <form method="post" action="/entries/<%= @entry.id %>">
   <input type="hidden" name="_method" value="put">
 
