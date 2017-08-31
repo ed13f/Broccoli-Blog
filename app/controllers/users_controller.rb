@@ -5,7 +5,7 @@ end
 
 post '/users/new' do
   @user = User.create(params[:user])
-  redirect 'users/:id'
+  redirect "users/#{@user.id}"
 end
 
 # Allow user login
