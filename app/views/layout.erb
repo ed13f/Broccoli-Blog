@@ -14,7 +14,15 @@
     <div class="max-w-700 center wrap-float">
       <nav class="clearfix mar-b-1">
         <ul class="no-bullets no-margin no-padding right">
-          <li class="pipe-separate t-light-green left"><a href="/">home</a></li>
+          <% if session_user == nil %>
+            <li class="pipe-separate t-light-green left"><a href="/">home</a></li>
+            <li class="pipe-separate t-light-green left"><a href="/login">login</a></li>
+            <li class="pipe-separate t-light-green left"><a href="/register">register</a></li>
+          <% else %>
+            <li class="pipe-separate t-light-green left"><%= @user.username %></li>
+            <li class="pipe-separate t-light-green left"><a href="/">home</a></li>
+            <li class="pipe-separate t-light-green left"><a href="/logout">logout</a></li>
+          <% end %>
         </ul>
       </nav>
 
@@ -27,6 +35,13 @@
 
   <div class="bg-dk-green pad-t-2 pad-s-1 pad-b-8 mar-b-16 c-white">
     <div class="max-w-700 center">
+      <% if @errors %>
+        <ul>
+          <% @errors.each do |error| %>
+            <li><%= error %></li>
+          <% end %>
+        </ul>
+      <% end %>
       <%= yield %>
     </div>
   </div>
