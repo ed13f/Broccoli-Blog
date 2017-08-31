@@ -9,6 +9,9 @@
   </ul>
 <% end %>
 
+<% current_user %>
+<% if entry_owned_by_user %>
+
 <form method="post" action="/entries/<%= @entry.id %>">
   <input type="hidden" name="_method" value="put">
 
@@ -20,3 +23,6 @@
 
   <input type="submit" value="Update" tabindex="3" class="block button w-100 mar-t-4 mar-b-3 pad-2 round-1 text-c center no-border no-outline">
 </form>
+<% else %>
+<h1> this post is NOT OWNED BY YOU!!! </h1>
+<% end %>

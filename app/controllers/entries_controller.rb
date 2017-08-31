@@ -5,14 +5,16 @@ get '/entries' do
 end
 
 post '/entries' do
+  if logged_in?
   @entry = Entry.new(params[:entry])
-
+  # binding.pry
   if @entry.save
     redirect "/entries/#{@entry.id}"
   else
     @errors = @entry.errors.full_messages
     erb :'entries/new'
   end
+end
 end
 
 get '/entries/new' do

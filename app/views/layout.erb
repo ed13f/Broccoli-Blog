@@ -14,7 +14,16 @@
     <div class="max-w-700 center wrap-float">
       <nav class="clearfix mar-b-1">
         <ul class="no-bullets no-margin no-padding right">
-          <li class="pipe-separate t-light-green left"><a href="/">home</a></li>
+          <% if logged_in? %>
+          <li class="pipe-separate t-light-green left">Hello, <strong><a href="/users/show"><%= current_user.username %></strong></a></li>
+          <li class="pipe-separate t-light-green left"><a href="/">Home</a></li>
+          <li class="pipe-separate t-light-green left"><a href="/sessions/logout">Log Out</a></li>
+          <% else %>
+
+          <li class="pipe-separate t-light-green left"><a href="/">Home</a></li>
+          <li class="pipe-separate t-light-green left"><a href="/users/new">Register</a></li>
+          <li class="pipe-separate t-light-green left"><a href="/sessions/new">Login</a></li>
+          <% end %>
         </ul>
       </nav>
 
