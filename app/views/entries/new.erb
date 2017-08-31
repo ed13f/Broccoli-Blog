@@ -8,7 +8,7 @@
     <% end %>
   </ul>
 <% end %>
-
+<% if logged_in? %>
 <form method="post" action="/entries">
   <label for="title-input" class="block mar-b-1">Title:</label>
   <input id="title-input" name="entry[title]" type="text" value="<%= @entry.try(:title) %>" tabindex="1" class="block w-100 no-outline no-border pad-1 mar-b-2">
@@ -20,3 +20,6 @@
 
   <input type="submit" value="Publish" tabindex="3" class="block button w-100 mar-t-4 mar-b-3 pad-2 round-1 text-c center no-border no-outline">
 </form>
+<% else %>
+<strong><h1> You need to be logged in to POST!!!!!</h1></strong>
+<% end %>

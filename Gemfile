@@ -17,6 +17,7 @@ gem 'shotgun'
 
 gem 'bcrypt'
 gem 'pry'
+gem 'pry-byebug'
 
 group :test do
   gem 'shoulda-matchers'
