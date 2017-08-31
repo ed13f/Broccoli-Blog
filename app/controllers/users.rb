@@ -23,3 +23,12 @@ get '/users/show' do
   @user = current_user.id
   erb :'users/show'
 end
+delete '/logout' do
+  session.delete(:user_id)
+  redirect '/'
+end
+
+get '/logout' do
+  session.delete(:user_id)
+  redirect '/'
+end
