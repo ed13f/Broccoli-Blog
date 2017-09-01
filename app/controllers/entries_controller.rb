@@ -16,7 +16,11 @@ post '/entries' do
 end
 
 get '/entries/new' do
-  erb :'entries/new'
+  if session_user == nil
+    erb :'404'
+  else
+    erb :'entries/new'
+  end
 end
 
 get '/entries/:id' do
@@ -43,6 +47,10 @@ delete '/entries/:id' do
 end
 
 get '/entries/:id/edit' do
-  @entry = find_and_ensure_entry(params[:id])
-  erb :'entries/edit'
+  if session_user == nil
+    erb :'404'
+  else
+    @entry = find_and_ensure_entry(params[:id])
+    erb :'entries/edit'
+  end
 end
