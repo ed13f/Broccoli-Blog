@@ -5,8 +5,10 @@ get '/entries' do
 end
 
 post '/entries' do
-  @entry = Entry.new(params[:entry])
-
+  entry_params = params[:entry]
+  # in order to include the newly added user_id
+  entry_params[:user_id] = session[:user_id]
+  @entry = Entry.new(entry_params)
   if @entry.save
     redirect "/entries/#{@entry.id}"
   else

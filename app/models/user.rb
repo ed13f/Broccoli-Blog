@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :entries
+
   validates :email, uniqueness: true
   validates :username, :email, :hashed_password, presence: true
 
