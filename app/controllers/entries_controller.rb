@@ -26,12 +26,8 @@ get '/entries/new' do
 end
 
 get '/entries/:id' do
-  if session_user.id != @entry.user_id
-    erb :'404'
-  else
-    @entry = find_and_ensure_entry(params[:id])
-    erb :'entries/show'
-  end
+  @entry = find_and_ensure_entry(params[:id])
+  erb :'entries/show'
 end
 
 put '/entries/:id' do
@@ -53,7 +49,8 @@ delete '/entries/:id' do
 end
 
 get '/entries/:id/edit' do
-  if session_user == nil
+  @entry = Entry.find_by(id: params[:id])
+  if session_user != nil && session_user.id != @entry.user_id
     erb :'404'
   else
     @entry = find_and_ensure_entry(params[:id])
