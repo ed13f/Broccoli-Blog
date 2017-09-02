@@ -26,8 +26,12 @@ get '/entries/new' do
 end
 
 get '/entries/:id' do
-  @entry = find_and_ensure_entry(params[:id])
-  erb :'entries/show'
+  if session_user.id != @entry.user_id
+    erb :'404'
+  else
+    @entry = find_and_ensure_entry(params[:id])
+    erb :'entries/show'
+  end
 end
 
 put '/entries/:id' do
