@@ -49,11 +49,14 @@ delete '/entries/:id' do
 end
 
 get '/entries/:id/edit' do
-  @entry = Entry.find_by(id: params[:id])
-  if session_user != nil && session_user.id != @entry.user_id
+  if session_user == nil
     erb :'404'
   else
     @entry = find_and_ensure_entry(params[:id])
-    erb :'entries/edit'
+    if session_user.id != @entry.user_id
+      erb :'404'
+    else
+      erb :'entries/edit'
+    end
   end
 end

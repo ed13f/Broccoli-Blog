@@ -9,7 +9,7 @@ post '/login' do
     redirect "/entries"
   else
     status 422
-    @errors = @user.errors.full_messages
+    @errors = ["There was an error logging in."]
     erb :"sessions/index"
   end
 end
