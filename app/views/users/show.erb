@@ -1,0 +1,8 @@
+<h1>show</h1>
+<h2><%= @user.username %> has made <%= @user.entries.length %> posts</h2>
+
+<ul>
+    <% @user.entries.each do |entry| %>
+      <li><%= entry.title %></li>
+    <% end %>
+  </ul>

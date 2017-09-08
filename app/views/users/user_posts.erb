@@ -1,0 +1,6 @@
+<h1>Posts Written by: <%= @user.username %></h1>
+  <ul>
+    <% @user.entries.each do |entry| %>
+      <li><%= entry.title %></li>
+    <% end %>
+  </ul>
