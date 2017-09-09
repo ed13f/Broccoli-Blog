@@ -30,11 +30,11 @@ end
 
 get '/entries/:id' do
   @entry = find_and_ensure_entry(params[:id])
-  # if logged_in? && current_user
+  if logged_in? && current_user
     erb :'entries/show'
-  # else
-  #   redirect '/sessions/new'
-  # end
+  else
+    redirect '/sessions/new'
+  end
 end
 
 put '/entries/:id' do

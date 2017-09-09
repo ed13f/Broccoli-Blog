@@ -1,6 +1,6 @@
 <h1>Posts Written by: <%= @user.username %></h1>
   <ul>
     <% @user.entries.each do |entry| %>
-      <li><%= entry.title %></li>
+      <li><a href="/entries/<%= entry.id %>" class="entry-title font-2 pad-b-1-4 c-white"><%= entry.title %></a></li>
     <% end %>
   </ul>
