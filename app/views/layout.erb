@@ -16,6 +16,17 @@
         <ul class="no-bullets no-margin no-padding right">
           <li class="pipe-separate t-light-green left"><a href="/">home</a></li>
         </ul>
+        <% if session[:user_id] %>
+          <h3><%= current_user.username%></h3>
+          <a href="/users/<%= current_user.id%>">Profile</a>
+            <form method='post' action='/sessions'>
+              <input type='hidden' name='_method' value='delete'>
+              <input type='submit' value='Log Out'>
+            </form>
+          <% else %>
+            <a href="/users/new">Create New Contact</a>
+            <a href="/sessions/new">Sign in</a>
+          <% end %>
       </nav>
 
       <div class="logo-container">

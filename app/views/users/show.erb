@@ -1,0 +1,9 @@
+<h1>show</h1>
+<h2><%= @user.username %> has made <%= @user.entries.length %> posts</h2>
+
+<ul>
+    <% @user.entries.each do |entry| %>
+      <li><a href="/entries/<%= entry.id %>" class="entry-title font-2 pad-b-1-4 c-white"><%= entry.title %></a></li>
+    <% end %>
+  </ul>
+

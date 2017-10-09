@@ -1,4 +1,11 @@
 <h1><%= @entry.title %></h1>
+<ul>
+<% if @errors %>
+  <% @errors.each do |error| %>
+    <li><%= error %></li>
+  <% end %>
+</ul>
+<% end %>
 
 <span class="entry-date block font-3-4 c-lt-gray"><%= "Written on #{long_form_date(@entry.created_at)}." %></span>
 
