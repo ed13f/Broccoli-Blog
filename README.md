@@ -14,4 +14,4 @@ This program utilizes HTTP cookies to set user sessions for authentication. The 
 * CSS
 
 ## Visual Overview
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Blog")
+![alt text](https://github.com/ed13f/Broccoli-Blog/blob/master/blog.png?raw=true "Blog")
